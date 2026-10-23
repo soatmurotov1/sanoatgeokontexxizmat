@@ -14,7 +14,7 @@ const LANG_LABELS: Record<Lang, string> = {
 
 const SERVICE_ITEM_COUNTS = [5, 3, 6, 9, 3, 5, 4]
 
-const GALLERY_IMAGES = ['/Image_12.jpg', '/Unknown_1.jpg', '/Yerqari.jpg']
+const GALLERY_IMAGES = ['/Image_12.jpg', '/Unknown_1.jpg', '/jamoa.jpg']
 
 const MAP_COORDS = '41.325833,69.323056'
 
@@ -182,8 +182,8 @@ function App() {
             window.scrollTo({ top: 0, behavior: 'smooth' })
           }}
         >
-          <img src="/sanoatgeokontexxizmat_logo.jpg" alt="Logo" className="brand-logo" />
-          <span>SANOATGEOKONTEXXIZMAT</span>
+          <img src="/sanoatgeokontexxizmat_logo.png" alt="Logo" className="brand-logo" />
+          <span className="brand-name">SANOATGEOKONTEXXIZMAT</span>
         </a>
 
         <ul className="nav-menu">

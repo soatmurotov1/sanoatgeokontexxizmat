@@ -1,11 +1,11 @@
 :root {
-    --bg-dark: #07174a;
-    --bg-light: #1133a8;
-    --text-main: #ffffff;
-    --text-muted: rgba(255, 255, 255, 0.75);
-    --accent: #b4d2ff;
-    --accent-hover: #d2e4ff;
-    --accent-glow: rgba(180, 210, 255, 0.2);
+    --bg-dark: #001a38;
+    --bg-light: #0a3468;
+    --text-main: #e8b553;
+    --text-muted: rgba(232, 181, 83, 0.8);
+    --accent: #e8b553;
+    --accent-hover: #f5cf7a;
+    --accent-glow: rgba(232, 181, 83, 0.2);
     --card-bg: rgba(255, 255, 255, 0.03);
     --card-border: rgba(255, 255, 255, 0.08);
 }
@@ -32,7 +32,7 @@ h1, h2, h3, h4 {
 
 body {
     font-family: 'Lato', sans-serif;
-    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-light) 60%, #0a1f63 100%);
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-light) 60%, #002448 100%);
     color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
@@ -61,7 +61,7 @@ header {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    background: rgba(7, 23, 74, 0.85);
+    background: rgba(0, 26, 56, 0.85);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     position: sticky;
@@ -85,16 +85,19 @@ header {
 }
 
 .brand-logo {
-    height: 38px;
+    height: 48px;
     width: auto;
     max-width: 100%;
     object-fit: contain;
-    border-radius: 6px;
+    border-radius: 50%;
 }
 
-.brand span {
-    color: var(--text-main);
+.brand-name {
     font-weight: 800;
+    background: linear-gradient(180deg, #f8dc8c 0%, #e0b44c 55%, #b8862b 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 /* Center Navigation Menu */
@@ -115,7 +118,7 @@ header {
 }
 
 .nav-menu a:hover {
-    color: var(--accent);
+    color: var(--accent-hover);
 }
 
 .nav-actions {
@@ -202,7 +205,7 @@ header {
     top: calc(100% + 8px);
     left: 0;
     width: 100%;
-    background: rgba(7, 23, 74, 0.95);
+    background: rgba(0, 26, 56, 0.95);
     border: 1px solid var(--card-border);
     border-radius: 14px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
@@ -322,7 +325,7 @@ header {
 
 .cta-btn {
     display: inline-block;
-    background: var(--text-main);
+    background: var(--accent);
     color: var(--bg-dark);
     padding: 1.1rem 2.8rem;
     border-radius: 50px;
@@ -337,7 +340,7 @@ header {
 
 .cta-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(255,255,255,0.25);
+    box-shadow: 0 15px 30px var(--accent-glow);
     background: var(--accent-hover);
 }
 
@@ -397,7 +400,7 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(800px circle at 50% -20%, rgba(180, 210, 255, 0.1), transparent 40%);
+    background: radial-gradient(800px circle at 50% -20%, rgba(232, 181, 83, 0.1), transparent 40%);
     opacity: 0;
     transition: opacity 0.4s ease;
     z-index: -1;
@@ -405,7 +408,7 @@ header {
 
 .service-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(180, 210, 255, 0.3);
+    border-color: rgba(232, 181, 83, 0.3);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
 }
 
@@ -418,7 +421,7 @@ header {
     font-size: 4.5rem;
     font-weight: 800;
     color: transparent;
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08);
+    -webkit-text-stroke: 1px rgba(232, 181, 83, 0.12);
     position: absolute;
     top: -0.5rem;
     right: 1.5rem;
@@ -428,7 +431,7 @@ header {
 }
 
 .service-card:hover .service-number {
-    -webkit-text-stroke: 1px rgba(180, 210, 255, 0.25);
+    -webkit-text-stroke: 1px rgba(232, 181, 83, 0.25);
     transform: scale(1.05);
 }
 
@@ -504,7 +507,7 @@ header {
 .gallery-item:hover {
     transform: translateY(-10px);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-    border-color: rgba(180, 210, 255, 0.4);
+    border-color: rgba(232, 181, 83, 0.4);
 }
 
 .gallery-item:hover img {
@@ -513,7 +516,7 @@ header {
 
 /* Footer */
 footer {
-    background: #040e2d;
+    background: #00122a;
     padding: 6rem 10% 3rem 10%;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -561,7 +564,7 @@ footer {
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(232, 181, 83, 0.6);
     margin-bottom: 0.5rem;
     font-weight: 700;
 }
@@ -592,9 +595,9 @@ footer {
 }
 
 .btn-link:hover {
-    background: rgba(180, 210, 255, 0.15);
+    background: rgba(232, 181, 83, 0.15);
     border-color: var(--accent);
-    color: #ffffff;
+    color: var(--accent-hover);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
@@ -646,7 +649,7 @@ footer {
 }
 
 .map-controls button {
-    background: rgba(7, 23, 74, 0.85);
+    background: rgba(0, 26, 56, 0.85);
     color: var(--text-main);
     border: 1px solid var(--card-border);
     width: 32px;
@@ -672,7 +675,7 @@ footer {
     text-align: center;
     padding-top: 2.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(232, 181, 83, 0.5);
     font-size: 0.9rem;
     letter-spacing: 0.02em;
 }
@@ -704,7 +707,7 @@ footer {
     .hero p { font-size: 1.1rem; }
     .nav-actions { gap: 10px; }
     .brand { font-size: 14px; }
-    .brand-logo { height: 32px; }
+    .brand-logo { height: 40px; }
     .services-section, .gallery-section { padding-top: 5rem; padding-bottom: 5rem; }
     .section-title { font-size: 2.2rem; margin-bottom: 3rem; }
     .gallery-grid { margin-top: 3rem; }
@@ -715,10 +718,9 @@ footer {
 @media (max-width: 576px) {
     /* Header: logo + name shrink, language switcher collapses to flag only */
     header { padding: 0.75rem 16px; gap: 10px; }
-    .brand { flex: 1 1 auto; min-width: 0; gap: 8px; font-size: clamp(10px, 3.1vw, 13px); }
-    .brand-logo { height: 28px; flex-shrink: 0; }
-    .brand span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .nav-actions { gap: 8px; }
+    .brand { flex: 1 1 0; min-width: 0; gap: 8px; font-size: clamp(10px, 3.1vw, 13px); }
+    .brand-logo { height: 34px; flex-shrink: 0; }
+    .brand-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }    .nav-actions { gap: 8px; }
     .lang-dropdown-wrapper { width: auto; }
     .lang-dropdown-btn { padding: 0 10px; min-height: 40px; font-size: 0.75rem; }
     #currentLangLabel { display: none; }
