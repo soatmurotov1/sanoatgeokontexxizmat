@@ -12,9 +12,9 @@ const LANG_LABELS: Record<Lang, string> = {
   en: 'English',
 }
 
-const SERVICE_ITEM_COUNTS = [5, 3, 6, 9, 3, 5, 4]
+const SERVICE_ITEM_COUNTS = [5, 3, 6, 9, 3, 5, 4, 4]
 
-const GALLERY_IMAGES = ['/Image_12.jpg', '/Unknown_1.jpg', '/jamoa.jpg']
+const GALLERY_IMAGES = ['/Image_12.jpg', '/Unknown_1.jpg', '/geologlar.jpg', '/karyer.jpg']
 
 const MAP_COORDS = '41.325833,69.323056'
 
@@ -370,6 +370,8 @@ function App() {
                   src={`https://maps.google.com/maps?q=${MAP_COORDS}&z=${zoom}&output=embed`}
                   allowFullScreen
                   loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
                 ></iframe>
               </div>
               <div className="map-controls">

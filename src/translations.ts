@@ -59,6 +59,12 @@ export const translations = {
         s7Item3: "Техническая диагностика оборудования;",
         s7Item4: "Лабораторные и санитарные исследования.",
 
+        s8Title: "Привлечение международных инвестиций в горнодобывающие проекты",
+        s8Item1: "Включение предприятий и проектов в реестр инвесторов;",
+        s8Item2: "Презентация проектов международным инвесторам;",
+        s8Item3: "Содействие в привлечении капитала на выгодных условиях;",
+        s8Item4: "Оказание инвестиционно-консалтинговых услуг в партнёрстве с MCI (компания из США).",
+
         galleryTitle: "Галерея",
         footerAboutTitle: "О компании",
         footerAboutDesc: "ООО «SANOATGEOKONTEXXIZMAT» — ведущая экспертная организация в Узбекистане. Мы предоставляем комплексное сопровождение проектов в сфере недропользования, геологии, гидрогеологии, экологии и промышленной безопасности на всех этапах реализации.",
@@ -134,6 +140,12 @@ export const translations = {
         s7Item2: "Xavfli ishlab chiqarish ob'ektlarini ekspluatatsiya qilishga ruxsatnomalar olishda ko'maklashish;",
         s7Item3: "Uskunalarning texnik diagnostikasi;",
         s7Item4: "Laboratoriya va sanitariya tadqiqotlari.",
+
+        s8Title: "Konchilik loyihalariga xalqaro investitsiyalarni jalb qilish",
+        s8Item1: "Korxonalar va loyihalarni investorlar reyestriga kiritish;",
+        s8Item2: "Loyihalarni xalqaro investorlarga taqdim etish;",
+        s8Item3: "Qulay shartlarda kapital jalb qilishga ko'maklashish;",
+        s8Item4: "MCI (AQSh korxonasi) bilan hamkorlikda investitsiya-konsalting xizmatlarini ko'rsatish.",
 
         galleryTitle: "Galereya",
         footerAboutTitle: "Korxonamiz haqida",
@@ -211,6 +223,12 @@ export const translations = {
         s7Item3: "Ускуналарнинг техник диагностикаси;",
         s7Item4: "Лаборатория ва санитария тадқиқотлари.",
 
+        s8Title: "Кончилик лойиҳаларига халқаро инвестицияларни жалб қилиш",
+        s8Item1: "Корхоналар ва лойиҳаларни инвесторлар реестрига киритиш;",
+        s8Item2: "Лойиҳаларни халқаро инвесторларга тақдим этиш;",
+        s8Item3: "Қулай шартларда капитал жалб қилишга кўмаклашиш;",
+        s8Item4: "MCI (АҚШ корхонаси) билан ҳамкорликда инвестиция-консалтинг хизматларини кўрсатиш.",
+
         galleryTitle: "Галерея",
         footerAboutTitle: "Корхонамиз ҳақида",
         footerAboutDesc: "«SANOATGEOKONTEXXIZMAT» МЧЖ — Ўзбекистондаги етакчи эксперт ташкилотдир. Биз ер қаъридан фойдаланиш, геология, гидрогеология, экология ва саноат хавфсизлиги соҳаларидаги лойиҳаларни амалга оширишнинг барча босқичларида комплекс қўллаб-қувватлашни таклиф этамиз.",
@@ -286,6 +304,12 @@ export const translations = {
         s7Item2: "Support in obtaining operation permits for hazardous industrial facilities;",
         s7Item3: "Technical diagnostics and non-destructive testing of equipment;",
         s7Item4: "Laboratory and sanitary testing services.",
+
+        s8Title: "Attracting International Investment to Mining Projects",
+        s8Item1: "Listing companies and projects in investor registries;",
+        s8Item2: "Presenting projects to international investors;",
+        s8Item3: "Assisting in raising capital on favorable terms;",
+        s8Item4: "Investment consulting services in partnership with MCI (a US company).",
 
         galleryTitle: "Gallery",
         footerAboutTitle: "About Company",

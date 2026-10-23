@@ -1,6 +1,6 @@
 :root {
-    --bg-dark: #001a38;
-    --bg-light: #0a3468;
+    --bg-dark: #071854;
+    --bg-light: #0b2878;
     --text-main: #e8b553;
     --text-muted: rgba(232, 181, 83, 0.8);
     --accent: #e8b553;
@@ -32,7 +32,7 @@ h1, h2, h3, h4 {
 
 body {
     font-family: 'Lato', sans-serif;
-    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-light) 60%, #002448 100%);
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-light) 60%, #082066 100%);
     color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
@@ -61,9 +61,9 @@ header {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    background: rgba(0, 26, 56, 0.85);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    background: rgba(7, 24, 84, 0.5);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -205,7 +205,7 @@ header {
     top: calc(100% + 8px);
     left: 0;
     width: 100%;
-    background: rgba(0, 26, 56, 0.95);
+    background: rgba(7, 24, 84, 0.95);
     border: 1px solid var(--card-border);
     border-radius: 14px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
@@ -481,7 +481,7 @@ header {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-top: 4rem;
 }
@@ -504,6 +504,11 @@ header {
     transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
+/* Portrait photo: keep the people at the bottom in frame */
+.gallery-item img[src="/karyer.jpg"] {
+    object-position: center 85%;
+}
+
 .gallery-item:hover {
     transform: translateY(-10px);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
@@ -516,7 +521,7 @@ header {
 
 /* Footer */
 footer {
-    background: #00122a;
+    background: #061444;
     padding: 6rem 10% 3rem 10%;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -649,7 +654,7 @@ footer {
 }
 
 .map-controls button {
-    background: rgba(0, 26, 56, 0.85);
+    background: rgba(7, 24, 84, 0.85);
     color: var(--text-main);
     border: 1px solid var(--card-border);
     width: 32px;
@@ -740,7 +745,7 @@ footer {
     .services-section, .gallery-section { padding: 3.5rem 16px; }
     .section-title { font-size: 1.7rem; margin-bottom: 2.2rem; }
     .services-grid, .gallery-grid { gap: 1.25rem; }
-    .gallery-grid { margin-top: 2.2rem; }
+    .gallery-grid { margin-top: 2.2rem; grid-template-columns: 1fr; }
     .service-card { padding: 2rem 1.25rem; border-radius: 16px; }
     .service-number { font-size: 3.5rem; right: 1rem; }
     .service-card h3 { font-size: 1.2rem; margin-bottom: 1.3rem; }
