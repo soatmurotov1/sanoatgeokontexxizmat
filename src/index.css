@@ -100,6 +100,9 @@ header {
 }
 
 /* Center Navigation Menu */
+/* <nav> is only for semantics; the list stays a direct flex item of the header */
+.site-nav { display: contents; }
+
 .nav-menu {
     display: flex;
     gap: 2rem;
@@ -235,6 +238,8 @@ header {
     cursor: pointer;
     transition: all 0.2s ease;
 }
+
+.lang-dropdown-option { text-decoration: none; }
 
 .lang-dropdown-option:hover {
     background: rgba(255, 255, 255, 0.1);
@@ -503,7 +508,7 @@ header {
 }
 
 /* Portrait photo: keep the people at the bottom in frame */
-.gallery-item img[src="/karyer.jpg"] {
+.gallery-item img[src="/karyerda-geologik-qidiruv.webp"] {
     object-position: center 85%;
 }
 
@@ -532,7 +537,7 @@ footer {
     margin: 0 auto 5rem auto;
 }
 
-.footer-col h4 {
+.footer-col h2 {
     font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 1.8rem;
@@ -542,7 +547,7 @@ footer {
     display: inline-block;
 }
 
-.footer-col h4::after {
+.footer-col h2::after {
     content: '';
     position: absolute;
     left: 0;
@@ -763,4 +768,20 @@ footer {
 @media (hover: none) {
     .service-card:hover, .gallery-item:hover, .btn-link:hover, .cta-btn:hover, .nav-contacts a:hover { transform: none; }
     .gallery-item:hover img { transform: none; }
+}
+
+/* RTL (Arabic) */
+[dir="rtl"] .dropdown-arrow { margin-left: 0; margin-right: 4px; }
+[dir="rtl"] .lang-dropdown-menu { left: auto; right: 0; }
+[dir="rtl"] .lang-dropdown-option { text-align: right; }
+[dir="rtl"] .service-number { right: auto; left: 1.5rem; }
+[dir="rtl"] .service-card ul li { padding-left: 0; padding-right: 1.8rem; }
+[dir="rtl"] .service-card ul li::before { left: auto; right: 0; }
+[dir="rtl"] .map-controls { right: auto; left: 12px; }
+[dir="rtl"] .btn-link, [dir="rtl"] .brand-name { direction: ltr; unicode-bidi: isolate; }
+
+@media (max-width: 576px) {
+    [dir="rtl"] .lang-dropdown-menu { right: auto; left: 0; }
+    [dir="rtl"] .service-number { right: auto; left: 1rem; }
+    [dir="rtl"] .service-card ul li { padding-left: 0; padding-right: 1.4rem; }
 }

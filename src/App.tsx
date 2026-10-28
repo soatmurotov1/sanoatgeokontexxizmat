@@ -2,37 +2,27 @@ import { useEffect, useState } from 'react'
 import type { ReactNode } from 'react'
 import { translations } from './translations'
 import type { Lang, TranslationKey } from './translations'
-
-const LANGS: Lang[] = ['ru', 'uz', 'uz-Cyrl', 'en']
+import { LANGS, LANG_PATHS, langDir } from './seo'
 
 const LANG_LABELS: Record<Lang, string> = {
   ru: 'Русский',
   uz: "O'zbekcha",
   'uz-Cyrl': 'Ўзбекча',
   en: 'English',
+  ar: 'العربية',
+  zh: '中文',
 }
 
 const SERVICE_ITEM_COUNTS = [5, 3, 6, 9, 3, 5, 4, 4]
 
-const GALLERY_IMAGES = ['/Image_12.jpg', '/Unknown_1.jpg', '/geologlar.jpg', '/karyer.jpg']
+const GALLERY_IMAGES = [
+  '/kon-marksheyderlik-tadqiqoti.webp',
+  '/ochiq-kon-texnikasi.webp',
+  '/geologlar-dala-tadqiqoti.webp',
+  '/karyerda-geologik-qidiruv.webp',
+]
 
 const MAP_COORDS = '41.325833,69.323056'
-
-function isLang(value: string | null): value is Lang {
-  return value !== null && (LANGS as string[]).includes(value)
-}
-
-function getInitialLang(): Lang {
-  const langParam = new URLSearchParams(window.location.search).get('lang')
-  if (isLang(langParam)) return langParam
-  try {
-    const savedLang = localStorage.getItem('selected_language')
-    if (isLang(savedLang)) return savedLang
-  } catch {
-    // localStorage unavailable
-  }
-  return 'ru'
-}
 
 function UzFlag() {
   return (
@@ -93,6 +83,30 @@ function Flag({ lang, idPrefix }: { lang: Lang; idPrefix: string }) {
       </svg>
     )
   }
+  if (lang === 'ar') {
+    return (
+      <svg className="flag-icon" viewBox="0 0 600 400">
+        <rect width="600" height="400" fill="#00732f" />
+        <rect y="133.33" width="600" height="133.34" fill="#fff" />
+        <rect y="266.67" width="600" height="133.33" fill="#000" />
+        <rect width="150" height="400" fill="#ff0000" />
+      </svg>
+    )
+  }
+  if (lang === 'zh') {
+    return (
+      <svg className="flag-icon" viewBox="0 0 30 20">
+        <rect width="30" height="20" fill="#de2910" />
+        <g fill="#ffde00">
+          <polygon points="5,2 6.76,7.43 2.15,4.07 7.85,4.07 3.24,7.43" />
+          <circle cx="10" cy="2" r="0.7" />
+          <circle cx="12" cy="4" r="0.7" />
+          <circle cx="12" cy="7" r="0.7" />
+          <circle cx="10" cy="9" r="0.7" />
+        </g>
+      </svg>
+    )
+  }
   return <UzFlag />
 }
 
@@ -141,8 +155,8 @@ function ContactGroup({ title, children }: { title: string; children: ReactNode 
   )
 }
 
-function App() {
-  const [lang, setLang] = useState<Lang>(getInitialLang)
+// The language comes from the URL; switching languages navigates to that language's page
+function App({ lang }: { lang: Lang }) {
   const [langOpen, setLangOpen] = useState(false)
   const [zoom, setZoom] = useState(15)
 
@@ -150,15 +164,8 @@ function App() {
 
   useEffect(() => {
     document.documentElement.lang = lang
-    document.title = t.pageTitle
-    try {
-      localStorage.setItem('selected_language', lang)
-      const url = new URL(window.location.href)
-      url.searchParams.set('lang', lang)
-      window.history.replaceState({}, '', url)
-    } catch {
-      // language state could not be persisted
-    }
+    document.documentElement.dir = langDir(lang)
+    document.title = t.seoTitle
   }, [lang, t])
 
   useEffect(() => {
@@ -182,15 +189,17 @@ function App() {
             window.scrollTo({ top: 0, behavior: 'smooth' })
           }}
         >
-          <img src="/sanoatgeokontexxizmat_logo.png" alt="Logo" className="brand-logo" />
+          <img src="/sanoatgeokontexxizmat_logo.svg" width="256" height="256" alt="SANOATGEOKONTEXXIZMAT logo" className="brand-logo" />
           <span className="brand-name">SANOATGEOKONTEXXIZMAT</span>
         </a>
 
-        <ul className="nav-menu">
-          <li><a href="#services">{t.navServices}</a></li>
-          <li><a href="#gallery">{t.navGallery}</a></li>
-          <li><a href="#about">{t.navAbout}</a></li>
-        </ul>
+        <nav className="site-nav">
+          <ul className="nav-menu">
+            <li><a href="#services">{t.navServices}</a></li>
+            <li><a href="#gallery">{t.navGallery}</a></li>
+            <li><a href="#about">{t.navAbout}</a></li>
+          </ul>
+        </nav>
 
         <div className="nav-actions">
           <div className={`lang-dropdown-wrapper${langOpen ? ' open' : ''}`}>
@@ -217,14 +226,16 @@ function App() {
             <ul className="lang-dropdown-menu">
               {LANGS.map((code) => (
                 <li key={code}>
-                  <button
-                    type="button"
+                  <a
+                    href={LANG_PATHS[code]}
+                    hrefLang={code}
+                    lang={code}
                     className={`lang-dropdown-option${code === lang ? ' active' : ''}`}
-                    onClick={() => setLang(code)}
+                    aria-current={code === lang ? 'page' : undefined}
                   >
                     <Flag lang={code} idPrefix="option" />
                     <span>{LANG_LABELS[code]}</span>
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -266,9 +277,14 @@ function App() {
         <section className="gallery-section" id="gallery">
           <h2 className="section-title">{t.galleryTitle}</h2>
           <div className="gallery-grid">
-            {GALLERY_IMAGES.map((src) => (
+            {GALLERY_IMAGES.map((src, i) => (
               <div className="gallery-item" key={src}>
-                <img src={src} alt="Sanoatgeokontex Xizmat Photo" />
+                <img
+                  src={src}
+                  alt={t[`galleryAlt${i + 1}` as TranslationKey]}
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             ))}
           </div>
@@ -278,12 +294,12 @@ function App() {
       <footer id="about">
         <div className="footer-grid">
           <div className="footer-col">
-            <h4>{t.footerAboutTitle}</h4>
+            <h2>{t.footerAboutTitle}</h2>
             <p>{t.footerAboutDesc}</p>
           </div>
 
           <div className="footer-col">
-            <h4>{t.footerContactsTitle}</h4>
+            <h2>{t.footerContactsTitle}</h2>
             <p style={{ marginBottom: '0.8rem' }}>
               <strong>{t.footerDirector}</strong> <span>{t.directorName}</span>
             </p>
@@ -332,7 +348,7 @@ function App() {
           </div>
 
           <div className="footer-col">
-            <h4>{t.footerAddressesTitle}</h4>
+            <h2>{t.footerAddressesTitle}</h2>
             <p>
               <strong>{t.footerLegalLabel}</strong> <span>{t.footerLegalAddr}</span>
             </p>

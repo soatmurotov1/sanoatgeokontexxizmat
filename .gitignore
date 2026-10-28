@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Secrets and unrelated nested projects must never reach the public repo
+.env
+.env.*
+!.env.example
+autodrive-frontend/
